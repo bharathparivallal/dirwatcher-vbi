@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 require('dotenv').config();
+const logger = require('morgan');
 
 const helmet = require('helmet');
 // const utils = require('./lib/utility/util_keys');
@@ -36,6 +37,7 @@ app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
 app.use(cookieParser());
 app.options('/', cors());
 app.use(cors());
+app.use(logger('DirWatcher-api'));
 
 // protect against vulnerability
 app.use(helmet());
