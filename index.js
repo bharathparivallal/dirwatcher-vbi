@@ -68,28 +68,28 @@ require('./lib/routes')(app);
  */
 
 app.get('*', function (req, res) {
-  res.render('index', {
-    title: 'DirWatcher by Bharath Parivallal',
-  });
+    res.render('index', {
+        title: 'DirWatcher by Bharath Parivallal',
+    });
 });
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  const err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+    const err = new Error('Not Found');
+    err.status = 404;
+    next(err);
 });
 
 // error handler
 app.use(function (err, req, res) {
-  const isProduction = process.env.NODE_ENV === 'production';
-  res.status(err.status || 500).json({
-    status_code: 500,
-    status: false,
-    message: 'App Crashed',
-    data: err.message,
-    ...(isProduction ? {} : { error: err }),
-  });
+    const isProduction = process.env.NODE_ENV === 'production';
+    res.status(err.status || 500).json({
+        status_code: 500,
+        status: false,
+        message: 'App Crashed',
+        data: err.message,
+        ...(isProduction ? {} : { error: err }),
+    });
 });
 
 module.exports = app;
