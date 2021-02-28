@@ -4,7 +4,9 @@
   "description": "DirWatcher management to watch file on schedule basic and share response as well to user",
   "main": "/bin/watcher",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./bin/watcher",
+    "start:dev": "nodemon ./bin/watcher"
   },
   "author": "Bharath Parivallal",
   "license": "ISC",

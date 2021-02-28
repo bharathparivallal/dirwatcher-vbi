@@ -14,6 +14,14 @@ const helmet = require('helmet');
 // const utils = require('./lib/utility/util_keys');
 const app = express();
 
+/** Cron Init Start
+ *
+ */
+
+const { cronStart } = require('../utility/cron_service');
+const crons = ['job'];
+cronStart({ crons });
+
 /**
  * Set `views` directory for module
  */
