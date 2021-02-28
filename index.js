@@ -14,14 +14,6 @@ const helmet = require('helmet');
 // const utils = require('./lib/utility/util_keys');
 const app = express();
 
-/** Cron Init Start
- *
- */
-
-const { cronStart } = require('../utility/cron_service');
-const crons = ['job'];
-cronStart({ crons });
-
 /**
  * Set `views` directory for module
  */
@@ -63,13 +55,12 @@ require('./lib/models')(app);
 
 require('./lib/routes')(app);
 
-// /**
-//  * Load auth routes and
-//  * login strategies with
-//  * passport
-//  */
-// app.use(passport.initialize());
-// passport.use('jwt', jwtStrategy);
+/** Cron Init Start
+ *
+ */
+const { cronStart } = require('./lib/utility/cron_service');
+const crons = ['job'];
+cronStart({ crons });
 
 /**
  * GET index page.
