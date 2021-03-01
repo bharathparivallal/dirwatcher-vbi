@@ -58,9 +58,9 @@ require('./lib/routes')(app);
 /** Cron Init Start
  *
  */
-const { cronStart } = require('./lib/utility/cron_service');
+const { cron_start } = require('./lib/utility/cron_service');
 const crons = ['job'];
-cronStart({ crons });
+cron_start({ crons });
 
 /**
  * GET index page.
